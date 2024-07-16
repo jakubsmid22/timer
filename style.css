@@ -20,3 +20,10 @@ body {
 .active p, .active i {
     opacity: 1;
 }
+
+ /** setting color of the clock icon to white **/
+
+input[type="time"]::-webkit-calendar-picker-indicator{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  }
+  
