@@ -12,3 +12,11 @@ body {
     align-items: center;
     background-color: #1B88A9;
 }
+
+.active {
+    background-color: #0C9BBD;
+}
+
+.active p, .active i {
+    opacity: 1;
+}
