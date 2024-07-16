@@ -3,8 +3,11 @@ const stopwatchSwitch = document.getElementById("stopwatch");
 const switchs = document.querySelectorAll("[data-switch]");
 const timerContainer = document.getElementById("timerContainer");
 const stopwatchContainer = document.getElementById("stopwatchContainer");
-const timerInput = document.getElementById("timerInput");
 const timerPlay = document.getElementById("timerPlay");
+const timerPause = document.getElementById("timerPause");
+const timerReset = document.getElementById("timerReset");
+const minutesInput = document.getElementById("minutes");
+const secondsInput = document.getElementById("seconds");
 
 switchs.forEach((e, i) => {
     e.addEventListener("click", () => {
@@ -28,11 +31,39 @@ switchs.forEach((e, i) => {
             stopwatchContainer.classList.add("left-0");
         }
     });
-})
+})  
 
 timerPlay.addEventListener("click", () => {
-    console.log(timerInput.value);
-    setInterval(() => {
+    let minutes = parseInt(minutesInput.value);
+    let seconds = parseInt(secondsInput.value);
 
-    }, 1000)
+    const intervalId = setInterval(() => {
+        if (minutes === 0 && seconds === 0) {
+            clearInterval(intervalId);
+            return;
+        }
+
+        if (seconds === 0) {
+            if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            }
+        } else {
+            seconds--;
+        }
+
+        minutesInput.value = minutes.toString().padStart(2, '0');
+        secondsInput.value = seconds.toString().padStart(2, '0');
+
+    }, 1000);
+
+    timerPause.addEventListener("click", () => {
+        clearInterval(intervalId);
+    })
+
+    timerReset.addEventListener("click", () => {
+        clearInterval(intervalId);
+        secondsInput.value = "00";
+        minutesInput.value = "00";
+    });
 });
