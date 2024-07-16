@@ -26,12 +26,14 @@
             <div class="relative w-full h-full text-white font-bold">
                 <div class="absolute left-0 w-full  h-full flex flex-col justify-evenly p-5 items-center duration-1000" id="timerContainer">
                     <h1 class="text-3xl">Časovač</h1>
-                    <input type="time" class="focus:outline-none bg-transparent text-4xl" value="00:00">
+                    <div class="flex justify-center text-4xl">
+                        <input class="w-[45%] bg-transparent focus:outline-none text-center" value="00" type="number"> <span class="text-center -ml-7 -mr-4">:</span> <input type="number" class="w-[45%] bg-transparent focus:outline-none text-center" value="05">
+                    </div>
                     <div class="flex w-full justify-around">
                         <div class="bg-[#ADFCE7] w-10 h-10  rounded-full flex items-center justify-center text-red-500 cursor-pointer">
                             <i class="fa-solid fa-xmark"></i>
                         </div>
-                        <div class="bg-[#ADFCE7] w-10 h-10  rounded-full flex items-center justify-center text-green-600 cursor-pointer">
+                        <div class="bg-[#ADFCE7] w-10 h-10  rounded-full flex items-center justify-center text-green-600 cursor-pointer" id="timerPlay">
                             <i class="fa-solid fa-play"></i>
                         </div>
                         <div class="bg-[#ADFCE7] w-10 h-10  rounded-full flex items-center justify-center text-black cursor-pointer">
@@ -40,7 +42,7 @@
                     </div>
                 </div>
     
-                <div class="absolute -left-60  w-full  h-full flex flex-col justify-evenly p-5 items-center duration-1000" id="stopwatchContainer">
+                <div class="absolute -left-[850px]  w-full  h-full flex flex-col justify-evenly p-5 items-center duration-1000" id="stopwatchContainer">
                     <h1 class="text-3xl">Stopky</h1>
                     <div class="text-4xl">00:00</div>
                     <div class="flex w-full justify-around">
